@@ -1,94 +1,182 @@
-# QR Code Web App 🚀
+# 🔳 QR Code Generator & Scanner
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-3.0-green.svg)](https://flask.palletsprojects.com/)
-[![OpenCV](https://img.shields.io/badge/OpenCV-4.10-orange.svg)](https://opencv.org/)
+A Python-based **QR Code Generator & Scanner** with both a **CLI application** and a **Flask web application**.
 
-A modern **web-based QR Code Generator & Scanner** built with Flask, preserving your original Python backend (pyqrcode & cv2). Two tabs: Generate QR from URL + webcam QR scanner w/ auto-open links. Now with **Download & Copy QR** features!
+The application generates QR codes only for **valid and resolvable website URLs** and provides QR scanning, downloading, and clipboard copy functionality.
 
 ## ✨ Features
 
-- **QR Generator**: Enter URL → instant QR PNG (pyqrcode/png, scale 10 like original).
-- **QR Scanner**: Live webcam scan → decodes & opens URL (cv2.QRCodeDetector like qr_scanner.py).
-- **Download QR**: Save as `qr-code.png`.
-- **Copy QR**: Clipboard copy for paste anywhere.
-- Responsive UI, dark/light ready, auto-reload dev server.
+### 🌐 Web Application
 
-## 📁 Structure
+- Generate QR codes for valid website URLs
+- Automatic `https://` addition
+- URL and domain validation
+- DNS verification
+- Download QR code as PNG
+- Copy QR code image to clipboard
+- Webcam QR scanner
+- Validate scanned QR URLs
+- Open scanned websites in a new tab
+- Responsive UI
 
+### 💻 CLI
+
+- Generate QR codes from terminal
+- Terminal QR preview
+- URL and DNS validation
+- Download QR codes
+- Copy QR images to clipboard
+- Generate multiple QR codes without restarting
+- Webcam QR scanner
+
+## 🛠️ Tech Stack
+
+**Backend**
+- Python
+- Flask
+- PyQRCode
+- OpenCV
+- NumPy
+- Pillow
+
+**Frontend**
+- HTML
+- CSS
+- JavaScript
+
+**Deployment**
+- GitHub
+- Render
+- Gunicorn
+
+## 📁 Project Structure
+
+```text
+qrcodegenerator/
+│
+├── app.py
+├── qr.py
+├── qrscanner.py
+├── requirements.txt
+├── render.yaml
+├── .python-version
+├── .gitignore
+├── README.md
+│
+├── templates/
+│   └── index.html
+│
+└── static/
+    ├── css/
+    │   └── style.css
+    └── js/
+        └── scanner.js
 ```
-QR_code copy/
-├── app.py              # Flask backend (generate/scan endpoints)
-├── requirements.txt    # Deps: flask pyqrcode opencv-python pillow
-├── templates/index.html # Main UI (tabs)
-├── static/
-│   ├── css/style.css   # Styling
-│   └── js/scanner.js   # Webcam + fetch logic
-├── venv/               # Python venv (activated)
-└── README.md          # This file!
-```
 
-## 🚀 Quick Start
+> `venv/` is not included in the repository.
 
-Ensure in `(venv)` prompt (if not: `venv\Scripts\activate`).
+## 🚀 Run Locally
+
+### 1. Clone Repository
 
 ```bash
-# Deps already installed, but if needed:
-pip install -r requirements.txt
+git clone https://github.com/AKASH-22203/qrcodegenerator.git
+cd qrcodegenerator
+```
 
-# Run server
+### 2. Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+Activate it on Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run Web Application
+
+```bash
 python app.py
 ```
 
-**Open:** http://localhost:5000
+Open:
 
+```text
+http://localhost:5000
+```
 
-## 🎮 Usage
+## 💻 Run CLI
 
-### 1. **Generate QR**
+### QR Generator
 
-- Enter URL (e.g., `www.whatsapp.com`).
-- Click **Generate QR** → QR appears.
-- **Download QR** → Saves PNG.
-- **Copy QR Image** → Paste in Paint/anywhere.
+```bash
+python qr.py
+```
 
-### 2. **Scan QR**
+### QR Scanner
 
-- Click **Start Scanner** → Allow camera.
-- Point at QR → **Scan QR**.
-- Decoded URL shows + auto-opens in new tab.
+```bash
+python qrscanner.py
+```
 
-**Stop anytime** w/ Stop Scanner.
+## 🔗 URL Validation
 
-## 🔧 Tech Stack
+The application accepts URLs such as:
 
-- **Backend**: Flask 3.0, pyqrcode 1.2, pypng, OpenCV 4.10 (exact original logic).
-- **Frontend**: Vanilla HTML/JS/CSS + jsQR (preview), MediaDevices API (webcam).
-- **No build tools** - pure Python web.
+```text
+https://google.com
+http://google.com
+www.google.com
+google.com
+```
 
-## 🛠️ Development
+Invalid or nonexistent domains are rejected before QR generation.
 
-- Auto-reload: Edit files → instant update.
-- Debug: `debug=True` (console logs).
-- Production: Use Gunicorn/NGINX.
+Example:
 
-## 📱 Browser Support
+```text
+Enter website URL: whatsaoo.co
 
-- Chrome/Firefox/Edge (HTTPS for webcam).
-- Mobile: Rear camera auto-detect.
+❌ The website 'whatsaoo.co' could not be found.
+```
 
-## 🤔 Troubleshooting
+## 📷 QR Scanner
 
-- **No Flask?** `pip install -r requirements.txt`
-- **Camera?** HTTPS/localhost ok, allow permissions.
-- **Copy fail?** Use Download (older browsers).
+The scanner validates the decoded QR content before treating it as a website.
 
-## 🚀 Next Steps
+```text
+Valid URL QR       → ✅ Accepted
+Plain text QR      → ❌ Rejected
+Invalid URL QR     → ❌ Rejected
+```
 
-- Upload QR scan from file.
-- Bulk generate.
-- QR text/data (not just URL).
+## 🌍 Deployment
 
-**Original desktop scripts preserved** - web layer on top!
+The Flask application is configured for deployment using **Render**.
 
-⭐ **Star if useful!** Questions? Open issue.
+Deployment configuration:
+
+```text
+render.yaml
+.python-version
+```
+
+## 👨‍💻 Author
+
+**Akash Hugar**
+
+GitHub:  
+https://github.com/AKASH-22203/qrcodegenerator
+
+---
+
+⭐ If you find this project useful, consider giving it a star!

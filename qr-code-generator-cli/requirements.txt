@@ -1,0 +1,5 @@
+PyQRCode==1.2.1
+pypng==0.20220715.0
+Pillow==10.1.0
+opencv-python==4.10.0.84
+numpy

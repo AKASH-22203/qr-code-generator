@@ -1,0 +1,837 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(135deg,
+            #eef2ff,
+            #f8fafc);
+
+    color: #1e293b;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 15px;
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.container {
+    width: 100%;
+    max-width: 850px;
+
+    background: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.qr-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 38px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+h1 {
+    margin: 0;
+
+    font-size: 32px;
+
+    color: #0f172a;
+}
+
+.header p {
+    margin-top: 10px;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+.tabs {
+    display: flex;
+
+    gap: 8px;
+
+    margin-bottom: 30px;
+
+    padding: 5px;
+
+    background: #f1f5f9;
+
+    border-radius: 12px;
+}
+
+.tab-btn {
+    flex: 1;
+
+    padding: 13px 15px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+}
+
+.tab-btn:hover {
+    color: #2563eb;
+}
+
+.tab-btn.active {
+    background: #2563eb;
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =====================================================
+   TAB CONTENT
+===================================================== */
+
+.tab-content {
+    display: none;
+
+    animation:
+        fadeIn 0.25s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   SECTION HEADER
+===================================================== */
+
+.section-header {
+    margin-bottom: 22px;
+}
+
+.section-header h2 {
+    margin: 0 0 6px;
+
+    color: #0f172a;
+
+    font-size: 23px;
+}
+
+.section-header p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #334155;
+}
+
+input[type="url"] {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 2px solid #e2e8f0;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 16px;
+
+    color: #0f172a;
+
+    background: #ffffff;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input[type="url"]:hover {
+    border-color: #cbd5e1;
+}
+
+input[type="url"]:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.input-group small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+    font-family: inherit;
+}
+
+.primary-btn,
+.secondary-btn,
+.danger-btn {
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease,
+        opacity 0.15s ease;
+}
+
+
+/* =====================================================
+   PRIMARY BUTTON
+===================================================== */
+
+.primary-btn {
+    width: 100%;
+
+    background: #2563eb;
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px rgba(37, 99, 235, 0.2);
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+.primary-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   SECONDARY BUTTON
+===================================================== */
+
+.secondary-btn {
+    background: #e2e8f0;
+
+    color: #334155;
+}
+
+.secondary-btn:hover {
+    background: #cbd5e1;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   DANGER BUTTON
+===================================================== */
+
+.danger-btn {
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+.danger-btn:hover {
+    background: #fecaca;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   DISABLED BUTTON
+===================================================== */
+
+button:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none !important;
+
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.message {
+    min-height: 22px;
+
+    margin-top: 15px;
+
+    padding: 0;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    line-height: 1.5;
+}
+
+.message.info {
+    padding: 11px 13px;
+
+    background: #eff6ff;
+
+    color: #1d4ed8;
+
+    border: 1px solid #bfdbfe;
+}
+
+.message.error {
+    padding: 11px 13px;
+
+    background: #fef2f2;
+
+    color: #dc2626;
+
+    border: 1px solid #fecaca;
+}
+
+.message.success {
+    padding: 11px 13px;
+
+    background: #f0fdf4;
+
+    color: #15803d;
+
+    border: 1px solid #bbf7d0;
+}
+
+
+/* =====================================================
+   QR CONTAINER
+===================================================== */
+
+.qr-container {
+    display: none;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+}
+
+.qr-container.show {
+    display: block;
+
+    animation:
+        fadeIn 0.3s ease;
+}
+
+.success-badge {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+#qrImg {
+    display: block;
+
+    width: 280px;
+
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    padding: 10px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.08);
+}
+
+.generated-url {
+    margin: 15px auto;
+
+    max-width: 600px;
+
+    word-break: break-all;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+.qr-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 18px;
+}
+
+
+/* =====================================================
+   SCANNER
+===================================================== */
+
+.scanner-container {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 300px;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    background: #0f172a;
+
+    overflow: hidden;
+}
+
+.scanner-container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 210px;
+    height: 210px;
+
+    border: 2px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 12px;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+#video {
+    display: none;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    border-radius: 12px;
+}
+
+#canvas {
+    display: none;
+}
+
+
+/* =====================================================
+   SCANNER ACTIONS
+===================================================== */
+
+.scanner-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.scanner-actions .primary-btn {
+    width: auto;
+}
+
+
+/* =====================================================
+   SCAN RESULT
+===================================================== */
+
+.scan-result {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+
+    word-break: break-word;
+}
+
+.scan-result.info {
+    background: #eff6ff;
+
+    color: #1d4ed8;
+
+    border: 1px solid #bfdbfe;
+}
+
+.scan-result.success {
+    background: #f0fdf4;
+
+    color: #166534;
+
+    border: 1px solid #bbf7d0;
+}
+
+.scan-result.error {
+    background: #fef2f2;
+
+    color: #b91c1c;
+
+    border: 1px solid #fecaca;
+}
+
+.scan-result a {
+    color: #2563eb;
+
+    word-break: break-all;
+
+    font-weight: 600;
+}
+
+.scan-result a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   OPEN LINK BUTTON
+===================================================== */
+
+.open-link-btn {
+    margin-top: 12px;
+
+    padding: 9px 14px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+.open-link-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    margin-top: 35px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #e2e8f0;
+
+    text-align: center;
+}
+
+footer p {
+    margin: 0 0 5px;
+
+    color: #334155;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+footer span {
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+
+    .container {
+        padding: 22px;
+
+        border-radius: 15px;
+    }
+
+
+    h1 {
+        font-size: 26px;
+    }
+
+
+    .header p {
+        font-size: 13px;
+    }
+
+
+    .tabs {
+        margin-bottom: 22px;
+    }
+
+
+    .tab-btn {
+        padding: 11px 8px;
+
+        font-size: 13px;
+    }
+
+
+    .section-header h2 {
+        font-size: 21px;
+    }
+
+
+    .qr-actions {
+        flex-direction: column;
+    }
+
+
+    .qr-actions button {
+        width: 100%;
+    }
+
+
+    .scanner-actions {
+        flex-direction: column;
+    }
+
+
+    .scanner-actions button {
+        width: 100%;
+    }
+
+
+    .scanner-actions .primary-btn {
+        width: 100%;
+    }
+
+
+    .scanner-container {
+        min-height: 250px;
+    }
+
+
+    .scanner-container::before {
+        width: 180px;
+        height: 180px;
+    }
+
+
+    #qrImg {
+        width: 240px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE DEVICES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .container {
+        padding: 18px;
+    }
+
+
+    h1 {
+        font-size: 23px;
+    }
+
+
+    .qr-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 32px;
+    }
+
+
+    .tab-btn {
+        font-size: 12px;
+    }
+}

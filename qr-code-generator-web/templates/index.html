@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Generate QR codes for valid website URLs and scan QR codes using your camera."
+    />
+
+    <meta name="theme-color" content="#111827" />
+
+    <title>QR Code Generator & Scanner</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <!-- jsQR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+      <header class="header">
+        <div class="qr-icon">▦</div>
+
+        <h1>QR Code Generator & Scanner</h1>
+
+        <p>
+          Generate QR codes from valid website URLs and scan QR codes using your
+          camera.
+        </p>
+      </header>
+
+      <!-- =====================================================
+         TABS
+    ====================================================== -->
+
+      <div class="tabs">
+        <button
+          type="button"
+          class="tab-btn active"
+          data-tab="generator"
+          onclick="switchTab('generator', this)"
+        >
+          Generate QR
+        </button>
+
+        <button
+          type="button"
+          class="tab-btn"
+          data-tab="scanner"
+          onclick="switchTab('scanner', this)"
+        >
+          Scan QR
+        </button>
+      </div>
+
+      <!-- =====================================================
+         GENERATOR
+    ====================================================== -->
+
+      <section id="generator" class="tab-content active">
+        <div class="section-header">
+          <h2>Generate QR Code</h2>
+
+          <p>Enter a valid website URL below.</p>
+        </div>
+
+        <div class="input-group">
+          <label for="urlInput"> Website URL </label>
+
+          <input
+            type="url"
+            id="urlInput"
+            placeholder="https://www.google.com"
+            autocomplete="url"
+            spellcheck="false"
+            maxlength="2048"
+            aria-describedby="urlHelp"
+          />
+
+          <small id="urlHelp">
+            Enter a real website address, for example: https://google.com
+          </small>
+        </div>
+
+        <button
+          type="button"
+          class="primary-btn"
+          id="generateBtn"
+          onclick="generateQR()"
+        >
+          Generate QR Code
+        </button>
+
+        <!-- =================================================
+             GENERATOR MESSAGE
+        ================================================== -->
+
+        <div
+          id="message"
+          class="message"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <!-- =================================================
+             QR RESULT
+        ================================================== -->
+
+        <div id="qrContainer" class="qr-container">
+          <div class="success-badge">✓ QR Code Generated</div>
+
+          <img id="qrImg" alt="Generated QR Code" />
+
+          <p id="generatedUrl" class="generated-url"></p>
+
+          <div class="qr-actions">
+            <button type="button" class="secondary-btn" onclick="downloadQR()">
+              Download QR
+            </button>
+
+            <button type="button" class="secondary-btn" onclick="copyQR()">
+              Copy QR Image
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         SCANNER
+    ====================================================== -->
+
+      <section id="scanner" class="tab-content">
+        <div class="section-header">
+          <h2>Scan QR Code</h2>
+
+          <p>Use your camera to scan a QR code containing a website URL.</p>
+        </div>
+
+        <div class="scanner-container">
+          <video id="video" autoplay playsinline muted></video>
+
+          <canvas id="canvas" width="300" height="300"></canvas>
+        </div>
+
+        <div class="scanner-actions">
+          <button
+            type="button"
+            class="primary-btn"
+            onclick="startScanner()"
+            id="startScannerBtn"
+          >
+            Start Scanner
+          </button>
+
+          <button
+            type="button"
+            class="secondary-btn"
+            onclick="scanImage()"
+            id="scanBtn"
+            disabled
+          >
+            Scan QR
+          </button>
+
+          <button
+            type="button"
+            class="danger-btn"
+            onclick="stopScanner()"
+            id="stopScannerBtn"
+          >
+            Stop Scanner
+          </button>
+        </div>
+
+        <!-- =================================================
+             SCANNER RESULT
+        ================================================== -->
+
+        <div
+          id="result"
+          class="scan-result"
+          role="status"
+          aria-live="polite"
+        ></div>
+      </section>
+
+      <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+      <footer>
+        <p>QR Code Generator & Scanner</p>
+
+        <span> Built with Flask, Python, HTML, CSS & JavaScript </span>
+      </footer>
+    </div>
+
+    <!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+    <script src="{{ url_for('static', filename='js/scanner.js') }}"></script>
+  </body>
+</html>

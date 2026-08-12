@@ -2,16 +2,16 @@
 
 A Python-based **QR Code Generator & Scanner** with both a **CLI application** and a **Flask web application**.
 
-The application generates QR codes only for **valid and resolvable website URLs** and provides QR scanning, downloading, and clipboard copy functionality.
+## 🌐 Live Demo
+
+🚀 **[Open QR Code Generator & Scanner](https://qrcodegenerator-iyzh.onrender.com/)**
 
 ## ✨ Features
 
 ### 🌐 Web Application
 
 - Generate QR codes for valid website URLs
-- Automatic `https://` addition
-- URL and domain validation
-- DNS verification
+- URL and DNS validation
 - Download QR code as PNG
 - Copy QR code image to clipboard
 - Webcam QR scanner
@@ -52,57 +52,55 @@ The application generates QR codes only for **valid and resolvable website URLs*
 ## 📁 Project Structure
 
 ```text
-qrcodegenerator/
+qr-code-generator/
 │
-├── app.py
-├── qr.py
-├── qrscanner.py
-├── requirements.txt
-├── render.yaml
-├── .python-version
-├── .gitignore
+├── qr-code-generator-cli/
+│   ├── qr.py
+│   ├── qr_scanner.py
+│   ├── url_validator.py
+│   └── requirements.txt
+│
+├── qr-code-generator-web/
+│   ├── app.py
+│   ├── render.yaml
+│   ├── requirements.txt
+│   │
+│   ├── templates/
+│   │   └── index.html
+│   │
+│   └── static/
+│       ├── css/
+│       │   └── style.css
+│       └── js/
+│           └── scanner.js
+│
 ├── README.md
-│
-├── templates/
-│   └── index.html
-│
-└── static/
-    ├── css/
-    │   └── style.css
-    └── js/
-        └── scanner.js
+└── .gitignore
 ```
-
-> `venv/` is not included in the repository.
 
 ## 🚀 Run Locally
 
-### 1. Clone Repository
+### Web Application
 
 ```bash
-git clone https://github.com/AKASH-22203/qrcodegenerator.git
-cd qrcodegenerator
-```
+cd qr-code-generator-web
 
-### 2. Create Virtual Environment
-
-```bash
 python -m venv venv
 ```
 
-Activate it on Windows:
+Windows:
 
 ```bash
 venv\Scripts\activate
 ```
 
-### 3. Install Dependencies
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run Web Application
+Run:
 
 ```bash
 python app.py
@@ -114,23 +112,33 @@ Open:
 http://localhost:5000
 ```
 
-## 💻 Run CLI
+### CLI
 
-### QR Generator
+```bash
+cd qr-code-generator-cli
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Generate QR:
 
 ```bash
 python qr.py
 ```
 
-### QR Scanner
+Scan QR:
 
 ```bash
-python qrscanner.py
+python qr_scanner.py
 ```
 
 ## 🔗 URL Validation
 
-The application accepts URLs such as:
+The application accepts valid website URLs such as:
 
 ```text
 https://google.com
@@ -141,41 +149,30 @@ google.com
 
 Invalid or nonexistent domains are rejected before QR generation.
 
-Example:
-
-```text
-Enter website URL: whatsaoo.co
-
-❌ The website 'whatsaoo.co' could not be found.
-```
-
 ## 📷 QR Scanner
 
 The scanner validates the decoded QR content before treating it as a website.
 
 ```text
-Valid URL QR       → ✅ Accepted
-Plain text QR      → ❌ Rejected
-Invalid URL QR     → ❌ Rejected
+Valid Website QR → ✅ Accepted
+Plain Text QR    → ❌ Rejected
+Invalid URL QR   → ❌ Rejected
 ```
 
 ## 🌍 Deployment
 
-The Flask application is configured for deployment using **Render**.
+The Flask web application is deployed using **Render**.
 
-Deployment configuration:
+**Live Application:**
 
-```text
-render.yaml
-.python-version
-```
+https://qrcodegenerator-iyzh.onrender.com/
 
 ## 👨‍💻 Author
 
 **Akash Hugar**
 
 GitHub:  
-https://github.com/AKASH-22203/qrcodegenerator
+https://github.com/AKASH-22203
 
 ---
 
